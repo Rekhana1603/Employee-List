@@ -1,0 +1,62 @@
+<h2 class="text-center my-3 text-primary">EMPLOYEE DETAILS</h2>
+<table class="table container mt-5">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let employee of employeeDetails">
+            <td>{{employee.name}}</td>
+            <td>{{employee.contact}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.address}}</td>
+        </tr>
+
+    </tbody>
+    <button type="button" class="btn btn-dark mt-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">ADD +</button>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Employee details...</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-floating mb-3">
+                            <input [(ngModel)]="name" name="name" type="text" class="form-control" id="floatingName"
+                                placeholder="Employee Name">
+                            <label for="floatingName">Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input [(ngModel)]="contact" name="contact" type="text" class="form-control"
+                                id="floatingContact" placeholder="Contact Number">
+                            <label for="floatingContact">Contact</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input [(ngModel)]="email" name="email" type="email" class="form-control" id="floatingInput"
+                                placeholder="name@example.com">
+                            <label for="floatingInput">Email</label>
+                        </div>
+                        <div class="form-floating">
+                            <input [(ngModel)]="address" name="address" type="text" class="form-control"
+                                id="floatingAddress" placeholder="Address">
+                            <label for="floatingAddress">Address</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button (click)="addEmployee()" type="button" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</table>

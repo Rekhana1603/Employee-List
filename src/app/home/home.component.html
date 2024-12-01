@@ -1,0 +1,22 @@
+<div style="min-height:100vh;" class="d-flex justify-content-center align-items-center">
+    <form class="border rounded bg-light p-5" style="width: 400px;" #loginForm="ngForm" (ngSubmit)="login()">
+        <h2 class="text-center mb-5">LOGIN</h2>
+        <div class="mb-3">
+            <label for="exampleInputUsername" class="form-label">Username</label>
+            <input #usernameInput="ngModel" [(ngModel)]="username" name="username" type="text" class="form-control"
+                id="exampleInputName" required pattern="[a-zA-Z]*">
+            @if (usernameInput.invalid && usernameInput.touched) {
+            <div class="text-danger fw-bolder">Invalid Username</div>
+            }
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input #pswdInput="ngModel" [(ngModel)]="password" name="password" type="password" class="form-control"
+                id="exampleInputPassword1" required pattern="[a-zA-Z0-9]*">
+            @if (pswdInput.invalid && pswdInput.touched) {
+            <div class="text-danger fw-bolder">Invalid Password</div>
+            }
+        </div>
+        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+</div>
